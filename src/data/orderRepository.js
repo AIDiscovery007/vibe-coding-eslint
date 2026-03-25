@@ -9,7 +9,9 @@ export function queryOrdersByUserId(userId) {
   ];
 }
 
+import { logger } from "../../utils/logger.js";
+
 export function insertOrder(order) {
-  console.log('插入订单:', order);
+  logger.info('插入订单:', order);
   return { ...order, id: Date.now() };
 }

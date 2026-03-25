@@ -14,7 +14,9 @@ export function queryUserById(id) {
 /**
  * 模拟保存用户到数据库
  */
+import { logger } from "../../utils/logger.js";
+
 export function saveUser(user) {
-  console.log('保存用户到数据库:', user);
+  logger.info('保存用户到数据库:', user);
   return true;
 }

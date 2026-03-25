@@ -12,7 +12,7 @@ import { queryUserById, saveUser, User } from '../data/userRepository';
 //    tsc 不报错（any 是合法类型）
 //    但 Linter 的 no-explicit-any 规则会拦截
 // ——————————————————————————————————
-export function processUserData(data: any): any {
+export function processUserData(data: unknown): unknown {
   return data;
 }
 
@@ -22,7 +22,7 @@ export function processUserData(data: any): any {
 //    Linter 的 typedef 规则也会报错（双重保障）
 // ——————————————————————————————————
 // @ts-ignore — 为了演示 Linter 效果，先忽略 tsc 报错
-export function getUserDetail(id) {
+export function getUserDetail(id: number): { id: number; name: string; email: string } {
   const user = queryUserById(id);
   return {
     ...user,
@@ -35,7 +35,7 @@ export function getUserDetail(id) {
 //    tsc 能推断出来所以不报错
 //    但 Linter 可以强制你写明确的返回类型
 // ——————————————————————————————————
-export function registerUser(name: string, email: string) {
+export function registerUser(name: string, email: string): boolean {
   if (!name || name.length < 2) {
     throw new Error('用户名至少2个字符');
   }
