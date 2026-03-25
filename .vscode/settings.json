@@ -1,0 +1,27 @@
+{
+  // ============================================================
+  // 📖 第1层 + 第2层：IDE 实时反馈 + 保存自动修复
+  //
+  // 这个配置做了两件事：
+  // 1. ESLint 插件会实时解析你正在编辑的文件，
+  //    违规代码下面会立刻出现红色/黄色波浪线
+  //    （和 TypeScript 类型错误一样的体验）
+  //
+  // 2. 每次 Cmd+S 保存时，自动执行 eslint --fix
+  //    能自动修复的问题直接修掉
+  // ============================================================
+
+  // 开启 ESLint 的 flat config 支持
+  "eslint.useFlatConfig": true,
+
+  // 让 ESLint 检查这些类型的文件
+  "eslint.validate": ["javascript", "typescript"],
+
+  // 保存时自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 关闭编辑器自带的格式化，避免和 ESLint 冲突
+  "editor.formatOnSave": false
+}
