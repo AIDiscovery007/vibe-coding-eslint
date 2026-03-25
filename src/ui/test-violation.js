@@ -1,4 +1,4 @@
-// 违反规范：UI 层直接引用 Data 层（应该通过 service 中转）
-import { userRepository } from '../data/userRepository';
+// 正确做法：通过 service 层中转
+import { userService } from '../service/userService';
 
-console.log(userRepository);
+console.log(userService);
